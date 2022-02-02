@@ -17,6 +17,10 @@
 		D299CF4B27AAD00A008F6A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF2127AAD009008F6A9D /* ContentView.swift */; };
 		D299CF4C27AAD00A008F6A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D299CF2227AAD00A008F6A9D /* Assets.xcassets */; };
 		D299CF4D27AAD00A008F6A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D299CF2227AAD00A008F6A9D /* Assets.xcassets */; };
+		D299CF6027AB0424008F6A9D /* menuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF5F27AB0424008F6A9D /* menuItem.swift */; };
+		D299CF6127AB0424008F6A9D /* menuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF5F27AB0424008F6A9D /* menuItem.swift */; };
+		D299CF6327AB04A9008F6A9D /* menuStatemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */; };
+		D299CF6427AB04A9008F6A9D /* menuStatemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,8 @@
 		D299CF4027AAD00A008F6A9D /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D299CF4427AAD00A008F6A9D /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		D299CF4627AAD00A008F6A9D /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		D299CF5F27AB0424008F6A9D /* menuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuItem.swift; sourceTree = "<group>"; };
+		D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuStatemanager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,10 @@
 		D299CF1F27AAD009008F6A9D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D299CF5E27AB03ED008F6A9D /* viewModel */,
+				D299CF5D27AB03E0008F6A9D /* Model */,
+				D299CF5C27AB03D5008F6A9D /* view */,
 				D299CF2027AAD009008F6A9D /* ConHubApp.swift */,
-				D299CF2127AAD009008F6A9D /* ContentView.swift */,
 				D299CF2227AAD00A008F6A9D /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -139,6 +147,30 @@
 				D299CF4627AAD00A008F6A9D /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		D299CF5C27AB03D5008F6A9D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				D299CF2127AAD009008F6A9D /* ContentView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		D299CF5D27AB03E0008F6A9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D299CF5F27AB0424008F6A9D /* menuItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D299CF5E27AB03ED008F6A9D /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */,
+			);
+			path = viewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +332,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D299CF4A27AAD00A008F6A9D /* ContentView.swift in Sources */,
+				D299CF6027AB0424008F6A9D /* menuItem.swift in Sources */,
+				D299CF6327AB04A9008F6A9D /* menuStatemanager.swift in Sources */,
 				D299CF4827AAD00A008F6A9D /* ConHubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +343,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D299CF4B27AAD00A008F6A9D /* ContentView.swift in Sources */,
+				D299CF6127AB0424008F6A9D /* menuItem.swift in Sources */,
+				D299CF6427AB04A9008F6A9D /* menuStatemanager.swift in Sources */,
 				D299CF4927AAD00A008F6A9D /* ConHubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
