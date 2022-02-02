@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @StateObject var menuStateManager = MenuStateManager()
+    
     var body: some View {
         NavigationView {
-            VStack(spacing:5) {
+            VStack(alignment:.leading) {
                 ForEach(menuStateManager.items){
                     item in
                     
@@ -20,13 +22,15 @@ struct ContentView: View {
                                 menuStateManager.selectedID =  item.id
                             }, label: {
                                 Label(item.name, systemImage: item.systemImage)
-                            }).buttonStyle(.borderless).frame(width: 180)
+                            }).buttonStyle(.borderless)//.frame(width: 180)
                         
-                        }.buttonStyle(.borderless).tint(menuStateManager.selectedID == item.id ? .indigo : .primary).padding().frame(width: 180)
+                        }.buttonStyle(.borderless)
+                        .tint(menuStateManager.selectedID == item.id ? .indigo : .primary).padding()//.frame(width: 180)
                         
                 }
                 Spacer()
-            }.navigationTitle("ConHub")
+            }
+            .padding().navigationTitle("ConHub")
            
                 
             Text("This is another content")
