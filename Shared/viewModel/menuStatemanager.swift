@@ -12,7 +12,7 @@ final class MenuStateManager:ObservableObject{
     @Published var items:[MenuItem]
     @Published var selectedID:String?
     static let defaultMenuItems: [MenuItem] = [
-        MenuItem(name: "Discover", systemImage: "sun.min",destination: AnyView(Text("Hello world"))),
+        MenuItem(name: "Discover", systemImage: "sun.min",destination: AnyView(Text("Hello world").navigationTitle("Discover"))),
         MenuItem(name: "News", systemImage: "newspaper",destination: AnyView(Text("Hello world"))),
         MenuItem(name: "Bookmarks", systemImage: "bookmark",destination: AnyView(Text("Hello world"))),
         MenuItem(name: "Downloaded", systemImage: "arrow.down.circle",destination: AnyView(Text("Hello world"))),

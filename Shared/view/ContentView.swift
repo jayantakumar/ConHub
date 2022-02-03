@@ -9,31 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var menuStateManager = MenuStateManager()
+   
     
     var body: some View {
         NavigationView {
-            VStack(alignment:.leading) {
-                ForEach(menuStateManager.items){
-                    item in
-                    
-                        NavigationLink(destination: item.destination, tag: item.id, selection: $menuStateManager.selectedID) {
-                            Button(action: {
-                                menuStateManager.selectedID =  item.id
-                            }, label: {
-                                Label(item.name, systemImage: item.systemImage)
-                            }).buttonStyle(.borderless)//.frame(width: 180)
-                        
-                        }.buttonStyle(.borderless)
-                        .tint(menuStateManager.selectedID == item.id ? .indigo : .primary).padding()//.frame(width: 180)
-                        
-                }
-                Spacer()
-            }
-            .padding().navigationTitle("ConHub")
-           
-                
-            Text("This is another content")
+            SideBar()
+            Text("Pick up a section")
             
         }
     }
@@ -42,5 +23,45 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+.previewInterfaceOrientation(.landscapeLeft)
+
+    }
+}
+
+struct SideBar: View {
+    @StateObject var menuStateManager = MenuStateManager()
+    var body: some View {
+        List {
+            Spacer()
+            ForEach(menuStateManager.items){
+                item in
+                
+                NavigationLink(destination: item.destination, tag: item.id, selection: $menuStateManager.selectedID) {
+                    Button(action: {
+                        menuStateManager.selectedID =  item.id
+                    }, label: {
+                        Label(item.name, systemImage: item.systemImage).labelStyle(.titleAndIcon)
+                            
+                    })
+                        .buttonStyle(.borderless)
+                        
+                       
+                    
+                }
+            
+            
+
+                
+            }
+           
+            .buttonStyle(.borderless)
+            
+            Spacer()
+          
+        }
+        .navigationTitle("Console")
+        .listStyle(.sidebar)
+        
+      
     }
 }
