@@ -21,6 +21,14 @@
 		D299CF6127AB0424008F6A9D /* menuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF5F27AB0424008F6A9D /* menuItem.swift */; };
 		D299CF6327AB04A9008F6A9D /* menuStatemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */; };
 		D299CF6427AB04A9008F6A9D /* menuStatemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */; };
+		D2E95B7627ABC7170014FCE1 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B7527ABC7170014FCE1 /* Discover.swift */; };
+		D2E95B7727ABC7170014FCE1 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B7527ABC7170014FCE1 /* Discover.swift */; };
+		D2E95B7927ABE6420014FCE1 /* fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B7827ABE6420014FCE1 /* fetcher.swift */; };
+		D2E95B7A27ABE6420014FCE1 /* fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B7827ABE6420014FCE1 /* fetcher.swift */; };
+		D2E95B8127ABEF490014FCE1 /* queryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B8027ABEF490014FCE1 /* queryObject.swift */; };
+		D2E95B8227ABEF490014FCE1 /* queryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B8027ABEF490014FCE1 /* queryObject.swift */; };
+		D2E95B8427AC31B10014FCE1 /* ApiKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B8327AC31B10014FCE1 /* ApiKeyManager.swift */; };
+		D2E95B8527AC31B10014FCE1 /* ApiKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E95B8327AC31B10014FCE1 /* ApiKeyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,10 @@
 		D299CF4627AAD00A008F6A9D /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		D299CF5F27AB0424008F6A9D /* menuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuItem.swift; sourceTree = "<group>"; };
 		D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuStatemanager.swift; sourceTree = "<group>"; };
+		D2E95B7527ABC7170014FCE1 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		D2E95B7827ABE6420014FCE1 /* fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetcher.swift; sourceTree = "<group>"; };
+		D2E95B8027ABEF490014FCE1 /* queryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = queryObject.swift; sourceTree = "<group>"; };
+		D2E95B8327AC31B10014FCE1 /* ApiKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D299CF2127AAD009008F6A9D /* ContentView.swift */,
+				D2E95B7527ABC7170014FCE1 /* Discover.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -160,6 +173,7 @@
 		D299CF5D27AB03E0008F6A9D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D2E95B8027ABEF490014FCE1 /* queryObject.swift */,
 				D299CF5F27AB0424008F6A9D /* menuItem.swift */,
 			);
 			path = Model;
@@ -169,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				D299CF6227AB04A9008F6A9D /* menuStatemanager.swift */,
+				D2E95B7827ABE6420014FCE1 /* fetcher.swift */,
+				D2E95B8327AC31B10014FCE1 /* ApiKeyManager.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -332,7 +348,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D299CF4A27AAD00A008F6A9D /* ContentView.swift in Sources */,
+				D2E95B7927ABE6420014FCE1 /* fetcher.swift in Sources */,
+				D2E95B7627ABC7170014FCE1 /* Discover.swift in Sources */,
 				D299CF6027AB0424008F6A9D /* menuItem.swift in Sources */,
+				D2E95B8427AC31B10014FCE1 /* ApiKeyManager.swift in Sources */,
+				D2E95B8127ABEF490014FCE1 /* queryObject.swift in Sources */,
 				D299CF6327AB04A9008F6A9D /* menuStatemanager.swift in Sources */,
 				D299CF4827AAD00A008F6A9D /* ConHubApp.swift in Sources */,
 			);
@@ -343,7 +363,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D299CF4B27AAD00A008F6A9D /* ContentView.swift in Sources */,
+				D2E95B7A27ABE6420014FCE1 /* fetcher.swift in Sources */,
+				D2E95B7727ABC7170014FCE1 /* Discover.swift in Sources */,
 				D299CF6127AB0424008F6A9D /* menuItem.swift in Sources */,
+				D2E95B8527AC31B10014FCE1 /* ApiKeyManager.swift in Sources */,
+				D2E95B8227ABEF490014FCE1 /* queryObject.swift in Sources */,
 				D299CF6427AB04A9008F6A9D /* menuStatemanager.swift in Sources */,
 				D299CF4927AAD00A008F6A9D /* ConHubApp.swift in Sources */,
 			);
@@ -568,6 +592,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ConHub--macOS--Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -596,6 +622,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ConHub--macOS--Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
