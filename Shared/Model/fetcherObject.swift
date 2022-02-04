@@ -23,6 +23,7 @@ class FetcherObject:FetchService {
 
         guard let url = URL(string:"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&type=video&q=\(query)&key=\(self.apiKey)")
                 
+                
         else{
             throw FetchManagerError.urlError
         }
