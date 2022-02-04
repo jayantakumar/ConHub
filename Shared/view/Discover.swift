@@ -38,7 +38,7 @@ struct Discover: View {
                    .padding()
                         
                         Link(item.snippet.title, destination: URL(string: "https://www.youtube.com/watch?v=\(item.videoInfo.videoID)")!)
-                            .font(.title).foregroundColor(.primary)
+                            .font(.headline).foregroundColor(.primary)
                             
                             .padding()
                         
