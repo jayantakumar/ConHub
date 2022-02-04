@@ -26,22 +26,22 @@ struct QueryObject: Codable {
 
 // MARK: - Item
 class Item: Codable,Identifiable {
-    let id:UUID = UUID()
+    let id:String = UUID().uuidString
     let kind: String
     let etag: String
-    let vid: ID
+    let videoInfo: VideoInfo
     let snippet: Snippet
 
     enum CodingKeys: String, CodingKey {
         case kind = "kind"
         case etag = "etag"
-        case vid = "id"
+        case videoInfo = "id"
         case snippet = "snippet"
     }
 }
 
 // MARK: - ID
-class ID: Codable {
+struct VideoInfo: Codable {
     let kind: String
     let videoID: String
 

@@ -12,25 +12,41 @@ struct Discover: View {
     @EnvironmentObject var youtubefetcher:FetchManager
     
     var body: some View {
-        Group {
-            if youtubefetcher.queryObject.items.count == 0
-            {
-                ProgressView()
-            }
-            else {
-            List {
+
+        switch youtubefetcher.queryObject.items.isEmpty{
+        case true : ProgressView()
+        case false :
+             List {
                 ForEach(youtubefetcher.queryObject.items) {
                     item in
-                    VStack{
-                        Text(item.snippet.channelTitle)
-
+                    HStack{
+                        AsyncImage(url: URL(string: item.snippet.thumbnails.medium.url)){ phase in
+                            if let image = phase.image{
+                            image
+                                .resizable()
+                                .scaledToFit()
+                            }
+                            else if phase.error != nil {
+                                Image(systemName: "􀌑")
+                            }
+                            else{
+                                ProgressView().progressViewStyle(.linear)
+                            }
+                        }
+                    
+                   .frame(width: 320, height: 180)
+                   .padding()
+                        
+                        Link(item.snippet.title, destination: URL(string: "https://www.youtube.com/watch?v=\(item.videoInfo.videoID)")!)
+                            .font(.title).foregroundColor(.primary)
+                            
+                            .padding()
                         
                     }
                 }
             }
         }
-            
-        }
+
     }
 }
 

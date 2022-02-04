@@ -7,7 +7,7 @@
 
 import Foundation
 protocol FetchService{
-    func fetch() async throws -> QueryObject
+    func fetch(query:String) async throws -> QueryObject
 }
 class FetcherObject:FetchService {
     
@@ -19,13 +19,15 @@ class FetcherObject:FetchService {
     
     let apiKey:String = ApiKeyManager().apiKey
     
-    func fetch() async throws -> QueryObject {
+    func fetch(query:String = "Devops") async throws -> QueryObject {
 
-        guard let url = URL(string:"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=developers&key=\(self.apiKey)")
+        guard let url = URL(string:"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&type=video&q=\(query)&key=\(self.apiKey)")
+                
         else{
             throw FetchManagerError.urlError
         }
 
+        print(url.absoluteString)
         let (data,response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else{
