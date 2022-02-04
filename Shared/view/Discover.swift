@@ -8,22 +8,34 @@
 import SwiftUI
 
 struct Discover: View {
-    @StateObject var youtubefetcher = FetchManager()
+    
+    @EnvironmentObject var youtubefetcher:FetchManager
     
     var body: some View {
-        VStack{
-            Text(String(youtubefetcher.queryObject.items.count))
-            Text("This is discover tab")
-        }.onAppear(perform: {
-            youtubefetcher.fetch()
-        })
+        Group {
+            if youtubefetcher.queryObject.items.count == 0
+            {
+                ProgressView()
+            }
+            else {
+            List {
+                ForEach(youtubefetcher.queryObject.items) {
+                    item in
+                    VStack{
+                        Text(item.snippet.channelTitle)
+
+                        
+                    }
+                }
+            }
+        }
             
-        
+        }
     }
 }
 
 struct Discover_Previews: PreviewProvider {
     static var previews: some View {
-        Discover()
+        Discover().environmentObject(FetchManager(fetcherObject: FetcherObject()))
     }
 }

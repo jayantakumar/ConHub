@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct ConHubApp: App {
+    @StateObject private var youtubefetcher = FetchManager(fetcherObject: FetcherObject())
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(youtubefetcher)
         }
     }
 }

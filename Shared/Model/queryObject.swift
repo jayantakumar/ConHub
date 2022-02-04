@@ -25,24 +25,23 @@ struct QueryObject: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
-
-
+class Item: Codable,Identifiable {
+    let id:UUID = UUID()
     let kind: String
     let etag: String
-    let id: ID
+    let vid: ID
     let snippet: Snippet
 
     enum CodingKeys: String, CodingKey {
         case kind = "kind"
         case etag = "etag"
-        case id = "id"
+        case vid = "id"
         case snippet = "snippet"
     }
 }
 
 // MARK: - ID
-struct ID: Codable {
+class ID: Codable {
     let kind: String
     let videoID: String
 
@@ -53,7 +52,7 @@ struct ID: Codable {
 }
 
 // MARK: - Snippet
-struct Snippet: Codable {
+class Snippet: Codable {
   
     
     let publishedAt: String
@@ -78,7 +77,7 @@ struct Snippet: Codable {
 }
 
 // MARK: - Thumbnails
-struct Thumbnails: Codable {
+class Thumbnails: Codable {
     let thumbnailsDefault: Default
     let medium: Default
     let high: Default
@@ -91,7 +90,7 @@ struct Thumbnails: Codable {
 }
 
 // MARK: - Default
-struct Default: Codable {
+class Default: Codable {
     let url: String
     let width: Int
     let height: Int
@@ -105,6 +104,7 @@ struct Default: Codable {
 
 // MARK: - PageInfo
 struct PageInfo: Codable {
+    
     let totalResults: Int
     let resultsPerPage: Int
 

@@ -6,43 +6,33 @@
 //
 
 import Foundation
-import Combine
+
 import SwiftUI
 
-class FetchManager:ObservableObject{
+@MainActor
+final class FetchManager:ObservableObject{
 
-    @Published var queryObject:QueryObject  = QueryObject(kind: "", etag: "", nextPageToken: "", regionCode: "", pageInfo: PageInfo(totalResults: 0, resultsPerPage: 0), items: [])
+    @Published private(set) var queryObject:QueryObject  = QueryObject(kind: "", etag: "", nextPageToken: "", regionCode: "", pageInfo: PageInfo(totalResults: 0, resultsPerPage: 0), items: [])
     
-    var cancellables = Set<AnyCancellable>()
-    let apiKey:String = ApiKeyManager().apiKey
+    private let fetcherObject:FetcherObject
     
-    func fetch(){
-
-    guard let url = URL(string:"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=developers&key=\(apiKey)")
-    else{
-        return
+    init(fetcherObject:FetcherObject) {
+        self.fetcherObject = fetcherObject
     }
-        print(url.absoluteString)
-        let task = URLSession.shared.dataTask(with: url, completionHandler: {
-            data , _ ,error in
-            print(5)
-            guard let data = data , error == nil else {
-                return
-            }
-            do {
-               
-                let queryObject = try JSONDecoder().decode(QueryObject.self,from: data)
-                DispatchQueue.main.async {
-                    self.queryObject = queryObject
-                }
-            } catch  {
-                print(error)
-            }
+    
+    func getQueryObject() async {
+        do{
+            self.queryObject = try await fetcherObject.fetch()
         }
-        )
-    
-        task.resume()
+        catch{
+            print(error)
+        }
     }
+    
+    
+    
  
+    
    
 }
+

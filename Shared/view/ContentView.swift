@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @EnvironmentObject var youtubefetcher:FetchManager
     var body: some View {
         NavigationView {
             
             SideBar()
             Text("Pick up a section")
             
+        }.task {
+            await youtubefetcher.getQueryObject()
         }
         
     }
