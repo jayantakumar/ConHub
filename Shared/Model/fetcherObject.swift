@@ -7,7 +7,7 @@
 
 import Foundation
 protocol FetchService{
-    func fetch(query:String) async throws -> QueryObject
+    func fetch(query:String,noOfItems:Int) async throws -> QueryObject
 }
 class FetcherObject:FetchService {
     
@@ -19,9 +19,9 @@ class FetcherObject:FetchService {
     
     let apiKey:String = ApiKeyManager().apiKey
     
-    func fetch(query:String = "Devops") async throws -> QueryObject {
+    func fetch(query:String = "Devops",noOfItems:Int = 20) async throws -> QueryObject {
 
-        guard let url = URL(string:"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&type=video&q=\(query)&key=\(self.apiKey)")
+        guard let url = URL(string:"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(noOfItems)&type=video&q=\(query)&key=\(self.apiKey)")
                 
                 
         else{

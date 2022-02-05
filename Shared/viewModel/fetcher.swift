@@ -22,7 +22,7 @@ final class FetchManager:ObservableObject{
     
     func getQueryObject() async {
         do{
-            self.queryObject = try await fetcherObject.fetch()
+            self.queryObject = try await fetcherObject.fetch(query:"tmux")
         }
         catch{
             print(error)

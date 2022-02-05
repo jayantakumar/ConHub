@@ -16,35 +16,43 @@ struct Discover: View {
         switch youtubefetcher.queryObject.items.isEmpty{
         case true : ProgressView()
         case false :
-             List {
-                ForEach(youtubefetcher.queryObject.items) {
-                    item in
-                    HStack{
-                        AsyncImage(url: URL(string: item.snippet.thumbnails.medium.url)){ phase in
-                            if let image = phase.image{
-                            image
-                                .resizable()
-                                .scaledToFit()
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top) {
+                    ForEach(youtubefetcher.queryObject.items) {
+                        item in
+                        VStack(alignment:.leading){
+                            AsyncImage(url: URL(string: item.snippet.thumbnails.medium.url)){ phase in
+                                if let image = phase.image{
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                               
+                                
+                                    
+                                }
+                                else if phase.error != nil {
+                                    Image(systemName: "􀌑")
+                                }
+                                else{
+                                    ProgressView().progressViewStyle(.linear)
+                                }
                             }
-                            else if phase.error != nil {
-                                Image(systemName: "􀌑")
-                            }
-                            else{
-                                ProgressView().progressViewStyle(.linear)
-                            }
-                        }
-                    
-                   .frame(width: 320, height: 180)
-                   .padding()
                         
-                        Link(item.snippet.title, destination: URL(string: "https://www.youtube.com/watch?v=\(item.videoInfo.videoID)")!)
-                            .font(.headline).foregroundColor(.primary)
+                       .frame(width: 256, height: 144)
+                       .padding()
                             
-                            .padding()
-                        
+                            Link(item.snippet.title, destination: URL(string: "https://www.youtube.com/watch?v=\(item.videoInfo.videoID)")!)
+                                .font(.headline).foregroundColor(.primary)
+                                .multilineTextAlignment(.center)
+                                .frame(width:250)
+                                .padding()
+                                
+                            
+                        }
                     }
                 }
-            }
+            }.frame(height:250)
         }
 
     }
